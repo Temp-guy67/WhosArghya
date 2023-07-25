@@ -6,8 +6,8 @@ import styles from '../../styles/APOD.module.css';
 
 const APOD = () => {
   const [pic, setPic] = useState("/");
-  const [title, setTitle] = useState("")
-  const [desc, setDesc] = useState("")
+  const [title, setTitle] = useState("");
+  const [desc, setDesc] = useState("");
   const [date, setDate] = useState("");
   const [hdurl, setHdurl] = useState("");
 
@@ -15,6 +15,7 @@ const APOD = () => {
 	const fetchData = async () => {	
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=g2SE3zMqKGOohHR8XgRuxx0j2p6xzrKfcGYQE3fn`)
     .then((response) => {
+      // console.log("response  : " + JSON.stringify(response))
       var fetchedData = response.data;
       setDate(fetchedData.date);
       setTitle(fetchedData.title);
@@ -39,8 +40,8 @@ const APOD = () => {
   // localStorage.clear();
 	return (
     <div className={styles.main}>
-      <div className={styles.container}>
-        <h1 className={styles.containerTitle}>APOD</h1>
+      <div className={styles.container1}>
+        <h1 className={styles.containerTitle}>-APOD-</h1>
       </div>
 
       <div className={styles.container}>
@@ -57,7 +58,6 @@ const APOD = () => {
             <Link href={hdurl}  passHref>
                   <a target="_blank">Watch Full Size</a>
             </Link>
-            
           </button>
         </div>
       </div>
